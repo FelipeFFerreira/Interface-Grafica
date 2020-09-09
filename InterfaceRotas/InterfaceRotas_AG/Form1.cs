@@ -54,21 +54,36 @@ namespace InterfaceRotas_AG
             Rectangle rect19 = new Rectangle(rect7.X, rect3.Y, 120, 120);
 
             //cruzamentos 
+            Rectangle cruzamento_1 = new Rectangle(rect4.X - x, rect.Y - y, x, y);
+            Rectangle cruzamento_2 = new Rectangle(rect.X - x, rect.Y - y, x, y);
+            Rectangle cruzamento_3 = new Rectangle(rect5.X - x, rect.Y - y, x, y);
+            Rectangle cruzamento_4 = new Rectangle(rect6.X - x, rect.Y - y, x, y);
+            Rectangle cruzamento_5 = new Rectangle(rect7.X - x, rect.Y - y, x, y);
+            Rectangle cruzamento_6 = new Rectangle(rect7.X + rect7.Height, rect.Y - y, x, y);
             Rectangle cruzamento_7 = new Rectangle(rect.X - x, rect1.Y - y, x, y);
             Rectangle cruzamento_8 = new Rectangle(rect4.X - x , rect1.Y - y, x, y);
             Rectangle cruzamento_9 = new Rectangle(rect5.X - x, rect1.Y - y, x, y);
             Rectangle cruzamento_10 = new Rectangle(rect6.X - x, rect1.Y - y, x, y);
             Rectangle cruzamento_11 = new Rectangle(rect7.X - x, rect1.Y - y, x, y);
+            Rectangle cruzamento_12 = new Rectangle(rect7.X + rect7.Height, rect1.Y - y, x, y);
             Rectangle cruzamento_13 = new Rectangle(rect.X - x, rect2.Y - y, x, y);
             Rectangle cruzamento_14 = new Rectangle(rect4.X - x, rect2.Y - y, x, y);
             Rectangle cruzamento_19 = new Rectangle(rect.X - x, rect3.Y - y, x, y);
+            Rectangle cruzamento_25 = new Rectangle(rect.X - x,  rect3.Y + rect3.Height, x, y);
             Rectangle cruzamento_20 = new Rectangle(rect4.X - x, rect3.Y - y, x, y);
+            Rectangle cruzamento_26 = new Rectangle(rect4.X - x, rect3.Y + rect3.Height, x, y);
             Rectangle cruzamento_15 = new Rectangle(rect5.X - x, rect2.Y - y, x, y);
             Rectangle cruzamento_16 = new Rectangle(rect6.X - x, rect2.Y - y, x, y);
             Rectangle cruzamento_21 = new Rectangle(rect5.X - x, rect3.Y - y, x, y);
+            Rectangle cruzamento_27 = new Rectangle(rect5.X - x, rect3.Y + rect3.Height, x, y);
             Rectangle cruzamento_22 = new Rectangle(rect6.X - x, rect3.Y - y, x, y);
             Rectangle cruzamento_17 = new Rectangle(rect7.X - x, rect2.Y - y, x, y);
+            Rectangle cruzamento_18 = new Rectangle(rect7.X + rect7.Height, rect2.Y - y, x, y);
             Rectangle cruzamento_23 = new Rectangle(rect7.X - x, rect3.Y - y, x, y);
+            Rectangle cruzamento_24 = new Rectangle(rect7.X + rect7.Height, rect3.Y - y, x, y);
+            Rectangle cruzamento_29 = new Rectangle(rect7.X - x, rect3.Y + rect3.Height, x, y);
+            Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
+            Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
 
 
 
@@ -111,6 +126,21 @@ namespace InterfaceRotas_AG
             desenhador.FillRectangle(pincel_cruzamento, cruzamento_7);
             desenhador.FillRectangle(pincel_cruzamento, cruzamento_13);
             desenhador.FillRectangle(pincel_cruzamento, cruzamento_19);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_1);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_2);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_3);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_4);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_5);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_25);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_26);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_27);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_28);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_29);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_6);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_12);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_18);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_24);
+            desenhador.FillRectangle(pincel_cruzamento, cruzamento_30);
 
             //apresenta a imagem final
             pictureBox2.BackgroundImage = img;

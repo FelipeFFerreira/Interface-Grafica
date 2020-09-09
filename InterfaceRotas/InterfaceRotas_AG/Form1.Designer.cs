@@ -34,9 +34,9 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(29, 22);
+            this.pictureBox2.Location = new System.Drawing.Point(35, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(831, 670);
+            this.pictureBox2.Size = new System.Drawing.Size(864, 677);
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -46,7 +46,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(888, 717);
+            this.ClientSize = new System.Drawing.Size(955, 717);
             this.Controls.Add(this.pictureBox2);
             this.Name = "Rotas";
             this.Text = "Form1";
