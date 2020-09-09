@@ -17,6 +17,8 @@ namespace InterfaceRotas_AG
             InitializeComponent();
         }
 
+        List<Rectangle> Cruzamentos = new List<Rectangle>();
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //criar a folha em branco
@@ -85,7 +87,37 @@ namespace InterfaceRotas_AG
             Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
             Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
 
-
+            /*Adiciona os cruzamentos na Lista*/
+            Cruzamentos.Add(cruzamento_1);
+            Cruzamentos.Add(cruzamento_2);
+            Cruzamentos.Add(cruzamento_3);
+            Cruzamentos.Add(cruzamento_4);
+            Cruzamentos.Add(cruzamento_5);
+            Cruzamentos.Add(cruzamento_6);
+            Cruzamentos.Add(cruzamento_7);
+            Cruzamentos.Add(cruzamento_8);
+            Cruzamentos.Add(cruzamento_9);
+            Cruzamentos.Add(cruzamento_10);
+            Cruzamentos.Add(cruzamento_11);
+            Cruzamentos.Add(cruzamento_12);
+            Cruzamentos.Add(cruzamento_13);
+            Cruzamentos.Add(cruzamento_14);
+            Cruzamentos.Add(cruzamento_15);
+            Cruzamentos.Add(cruzamento_16);
+            Cruzamentos.Add(cruzamento_17);
+            Cruzamentos.Add(cruzamento_18);
+            Cruzamentos.Add(cruzamento_19);
+            Cruzamentos.Add(cruzamento_20);
+            Cruzamentos.Add(cruzamento_21);
+            Cruzamentos.Add(cruzamento_22);
+            Cruzamentos.Add(cruzamento_23);
+            Cruzamentos.Add(cruzamento_24);
+            Cruzamentos.Add(cruzamento_25);
+            Cruzamentos.Add(cruzamento_26);
+            Cruzamentos.Add(cruzamento_27);
+            Cruzamentos.Add(cruzamento_28);
+            Cruzamentos.Add(cruzamento_29);
+            Cruzamentos.Add(cruzamento_30);
 
             //Pen lapis = new Pen(Color.Black, 2);
             //desenhador.DrawRectangle(lapis, rect);
@@ -146,6 +178,8 @@ namespace InterfaceRotas_AG
             pictureBox2.BackgroundImage = img;
         }
 
+
+
         private void pictureBox1_Paint(object sender, PaintEventArgs e)
         {
            
@@ -154,6 +188,11 @@ namespace InterfaceRotas_AG
         private void pictureBox2_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }
