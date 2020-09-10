@@ -157,11 +157,10 @@ namespace InterfaceRotas_AG
             AtribuiCruzamentos();
 
             /*Para Auto Teste*/
-            AutoTesteMapa();
-            //DesenhaAvenidas();
+            //AutoTesteMapa();
 
             /*Para Leitura No arquivo*/
-            //if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
+            if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
 

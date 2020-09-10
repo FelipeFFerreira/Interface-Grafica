@@ -15,7 +15,7 @@ namespace InterfaceRotas_AG
         {
             do
             {
-                string sourcePath = @"C:\GitHub\engffn\InterfaceRotas\TestesRotas\rota1.txt";
+                string sourcePath = @"C:\GitHub\engffn\InterfaceRotas\TestesRotas\rota2.txt";
                 string[] ConteudoRota = new string[30];
                 try
                 {
