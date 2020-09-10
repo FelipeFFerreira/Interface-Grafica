@@ -12,6 +12,7 @@ namespace InterfaceRotas_AG
 {
     public partial class Rotas : Form
     {
+
         public Rotas()
         {
             InitializeComponent();
@@ -40,8 +41,8 @@ namespace InterfaceRotas_AG
         Rectangle rect17 = new Rectangle(rect5.X, rect3.Y, 120, 120);
         Rectangle rect18 = new Rectangle(rect6.X, rect3.Y, 120, 120);
         Rectangle rect19 = new Rectangle(rect7.X, rect3.Y, 120, 120);
-        Rectangle cruzamento_1 = new Rectangle(rect4.X - x, rect.Y - y, x, y);
-        Rectangle cruzamento_2 = new Rectangle(rect.X - x, rect.Y - y, x, y);
+        Rectangle cruzamento_2 = new Rectangle(rect4.X - x, rect.Y - y, x, y);
+        Rectangle cruzamento_1 = new Rectangle(rect.X - x, rect.Y - y, x, y);
         Rectangle cruzamento_3 = new Rectangle(rect5.X - x, rect.Y - y, x, y);
         Rectangle cruzamento_4 = new Rectangle(rect6.X - x, rect.Y - y, x, y);
         Rectangle cruzamento_5 = new Rectangle(rect7.X - x, rect.Y - y, x, y);
@@ -142,14 +143,37 @@ namespace InterfaceRotas_AG
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             img = new Bitmap(pictureBox2.Width, pictureBox2.Height); //criar a folha em branco  
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
             desenhador.Clear(Color.LightSlateGray); //limpa e atribuir a cor cinza do mapa
+
+            /*Desenha Mapa incial*/
             DesenhaQuarteroes();
             DesenhaAvenidas();
             AtualizaMapa();
+
+            AtribuiCruzamentos();
+
+            /*Para Auto Teste*/
+            AutoTesteMapa();
+            //DesenhaAvenidas();
+
+            /*Para Leitura No arquivo*/
+            //if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
+
+            AtualizaMapa();
+
+        }
+        private void AutoTesteMapa()
+        {
+            timer1.Enabled = true;
+
+        }
+
+        private void AtribuiCruzamentos()
+        {
             Cruzamentos[0] = cruzamento_1;
             Cruzamentos[1] = cruzamento_2;
             Cruzamentos[2] = cruzamento_3;
@@ -157,30 +181,64 @@ namespace InterfaceRotas_AG
             Cruzamentos[4] = cruzamento_5;
             Cruzamentos[5] = cruzamento_6;
             Cruzamentos[6] = cruzamento_7;
-        }
+            Cruzamentos[7] = cruzamento_8;
+            Cruzamentos[8] = cruzamento_9;
+            Cruzamentos[9] = cruzamento_10;
+            Cruzamentos[10] = cruzamento_11;
+            Cruzamentos[11] = cruzamento_12;
+            Cruzamentos[12] = cruzamento_13;
+            Cruzamentos[13] = cruzamento_14;
+            Cruzamentos[14] = cruzamento_15;
+            Cruzamentos[15] = cruzamento_16;
+            Cruzamentos[16] = cruzamento_17;
+            Cruzamentos[17] = cruzamento_18;
+            Cruzamentos[18] = cruzamento_19;
+            Cruzamentos[19] = cruzamento_20;
+            Cruzamentos[20] = cruzamento_21;
+            Cruzamentos[21] = cruzamento_22;
+            Cruzamentos[22] = cruzamento_23;
+            Cruzamentos[23] = cruzamento_24;
+            Cruzamentos[24] = cruzamento_25;
+            Cruzamentos[25] = cruzamento_26;
+            Cruzamentos[26] = cruzamento_27;
+            Cruzamentos[27] = cruzamento_28;
+            Cruzamentos[28] = cruzamento_29;
+            Cruzamentos[29] = cruzamento_30;
 
-
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-           
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-           
+
+
+        }
+
+        private void DesenhaMelhorRota()
+        {
+            this.SuspendLayout();
+            for (int i = 0; i < LeituraRotas.Rota.Length; i++)
+            {
+                for (int j = 0; j < Cruzamentos.Length; j++)
+                {
+                    if (LeituraRotas.Rota[i] - 1 == j)
+                    {
+                        desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
+                    }
+                }
+            }
+            this.ResumeLayout();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Brush pincel_cruzamento_livre = new SolidBrush(Color.AliceBlue);
             this.SuspendLayout();
-
-            if (i < 7)desenhador.FillRectangle(Brushes.Red, Cruzamentos[i++]);
-
-            //this.SuspendLayout();
-            //desenhador.FillRectangle(Brushes.Red, cruzamento_1);
+            if (i < 30) desenhador.FillRectangle(Brushes.Red, Cruzamentos[i++]);
+            else 
+            {
+                DesenhaAvenidas();
+                i = 0;
+            }
             this.ResumeLayout();
-
             AtualizaMapa();
         }
     }
