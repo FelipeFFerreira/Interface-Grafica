@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace InterfaceRotas_AG
 {
@@ -20,8 +21,23 @@ namespace InterfaceRotas_AG
                 try
                 {
                     FileInfo fileInfo = new FileInfo(sourcePath);
-                    ConteudoRota = File.ReadAllLines(sourcePath);
+                    bool mutexOwned = false;
+                    Mutex mutex = null;
 
+                    try
+                    {
+                        mutex = new Mutex(true, sourcePath, out mutexOwned);
+                        if (!mutexOwned)
+                            mutex.WaitOne();
+
+                        ConteudoRota = File.ReadAllLines(sourcePath);
+                    }
+                    finally
+                    {
+                        mutex?.ReleaseMutex();
+                        mutex?.Dispose();
+                        mutex = null;
+                    }
                 }
                 catch (IOException e)
                 {
