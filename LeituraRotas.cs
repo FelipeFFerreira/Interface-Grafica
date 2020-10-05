@@ -16,7 +16,7 @@ namespace InterfaceRotas_AG
         {
             do
             {
-                string sourcePath = @"C:\GitHub\engffn\InterfaceRotas\TestesRotas\rota2.txt";
+                string sourcePath = @"C:\GitHub\TRB2-IA\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
                 string[] ConteudoRota = new string[30];
                 try
                 {
@@ -26,7 +26,7 @@ namespace InterfaceRotas_AG
 
                     try
                     {
-                        mutex = new Mutex(true, sourcePath, out mutexOwned);
+                        mutex = new Mutex(true, "teste", out mutexOwned);
                         if (!mutexOwned)
                             mutex.WaitOne();
 

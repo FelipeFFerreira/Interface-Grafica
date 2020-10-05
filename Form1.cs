@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -157,10 +159,13 @@ namespace InterfaceRotas_AG
             AtribuiCruzamentos();
 
             /*Para Auto Teste*/
-            AutoTesteMapa();
+            //AutoTesteMapa();
 
+            /*Chamar exe*/
+            Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
-            //if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
+            Thread.Sleep(3500);
+            if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
 
@@ -221,7 +226,11 @@ namespace InterfaceRotas_AG
                 {
                     if (LeituraRotas.Rota[i] - 1 == j)
                     {
+                        this.SuspendLayout();
                         desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
+                        this.ResumeLayout();
+                        AtualizaMapa();
+                        //Thread.Sleep(500);
                     }
                 }
             }
