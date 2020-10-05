@@ -77,6 +77,7 @@ namespace InterfaceRotas_AG
         Brush pincel_cruzamento = new SolidBrush(Color.AntiqueWhite);
         Rectangle[] Cruzamentos = new Rectangle[30];
         private int i = 0;
+        private List<int> id = new List<int>();
 
         private void DesenhaQuarteroes()
         {
@@ -162,10 +163,10 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-            Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
-            Thread.Sleep(3500);
-            if(LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
+            Thread.Sleep(4000);
+            if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
 
@@ -219,29 +220,38 @@ namespace InterfaceRotas_AG
 
         private void DesenhaMelhorRota()
         {
-            this.SuspendLayout();
-            for (int i = 0; i < LeituraRotas.Rota.Length; i++)
+            
+            for (i = 0; i < LeituraRotas.Rota.Length; i++)
             {
                 for (int j = 0; j < Cruzamentos.Length; j++)
                 {
                     if (LeituraRotas.Rota[i] - 1 == j)
                     {
-                        this.SuspendLayout();
-                        desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
-                        this.ResumeLayout();
-                        AtualizaMapa();
-                        //Thread.Sleep(500);
+                        id.Add(j);
+                        //this.SuspendLayout();
+                        //desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
+                        //this.ResumeLayout();
+                        //AtualizaMapa();
+                        //Thread.Sleep(100);
+                        break;
                     }
+                    
+                    //Thread.Sleep(200);
                 }
+                
             }
-            this.ResumeLayout();
+            AutoTesteMapa();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.SuspendLayout();
-            if (i < 30) desenhador.FillRectangle(Brushes.Red, Cruzamentos[i++]);
-            else 
+            if (i < id.Count) 
+            {
+                desenhador.FillRectangle(Brushes.Red, Cruzamentos[id[i]]);
+                i++;
+            }
+            else
             {
                 DesenhaAvenidas();
                 i = 0;
