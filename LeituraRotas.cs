@@ -10,7 +10,7 @@ namespace InterfaceRotas_AG
 {
     static class LeituraRotas
     {
-        public static int[] Rota = new int[30];
+        public static List<int> Rota = new List<int>();
 
         internal static bool RealizarLeituraRota()
         {
@@ -46,7 +46,7 @@ namespace InterfaceRotas_AG
                 }
                 if(String.Compare(ConteudoRota[0], "v") == 0 && String.Compare(ConteudoRota[0], "v") == 0)
                 {
-                    for (int i = 0; i < ConteudoRota.Length - 2; i++) Rota[i] = int.Parse(ConteudoRota[i + 1]);
+                    for (int i = 0; i < ConteudoRota.Length - 2; i++) Rota.Add(int.Parse(ConteudoRota[i + 1]));
                     return true;
                 }
             } while (true);

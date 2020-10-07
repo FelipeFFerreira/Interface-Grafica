@@ -137,6 +137,21 @@ namespace InterfaceRotas_AG
             desenhador.FillRectangle(pincel_cruzamento, cruzamento_30);
 
         }
+        Pen myPen = new System.Drawing.Pen(Color.Yellow, 3);
+
+        private void DesenhaFaixas()
+        {
+            desenhador.DrawLine(myPen, new Point(50, 17), new Point(70, 17));
+            desenhador.DrawLine(myPen, new Point(75, 17), new Point(95, 17));
+            desenhador.DrawLine(myPen, new Point(100, 17), new Point(120, 17));
+            desenhador.DrawLine(myPen, new Point(125, 17), new Point(145, 17));
+
+            desenhador.DrawLine(myPen, new Point(205, 17), new Point(225, 17));
+            desenhador.DrawLine(myPen, new Point(230, 17), new Point(250, 17));
+            desenhador.DrawLine(myPen, new Point(255, 17), new Point(275, 17));
+            desenhador.DrawLine(myPen, new Point(280, 17), new Point(300, 17));
+
+        }
 
         private void AtualizaMapa()
         {
@@ -150,22 +165,24 @@ namespace InterfaceRotas_AG
             img = new Bitmap(pictureBox2.Width, pictureBox2.Height); //criar a folha em branco  
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
-            desenhador.Clear(Color.LightSlateGray); //limpa e atribuir a cor cinza do mapa
+            desenhador.Clear(Color.Black); //limpa e atribuir a cor cinza do mapa
 
             /*Desenha Mapa incial*/
             DesenhaQuarteroes();
             DesenhaAvenidas();
+            DesenhaFaixas();            
+            
             AtualizaMapa();
 
             AtribuiCruzamentos();
-
+             
             /*Para Auto Teste*/
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           //Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
-            Thread.Sleep(4000);
+            //Thread.Sleep(300);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
@@ -221,39 +238,42 @@ namespace InterfaceRotas_AG
         private void DesenhaMelhorRota()
         {
             
-            for (i = 0; i < LeituraRotas.Rota.Length; i++)
-            {
-                for (int j = 0; j < Cruzamentos.Length; j++)
-                {
-                    if (LeituraRotas.Rota[i] - 1 == j)
-                    {
-                        id.Add(j);
-                        //this.SuspendLayout();
-                        //desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
-                        //this.ResumeLayout();
-                        //AtualizaMapa();
-                        //Thread.Sleep(100);
-                        break;
-                    }
+            //for (i = 0; i < LeituraRotas.Rota.Length; i++)
+            //{
+            //    for (int j = 0; j < Cruzamentos.Length; j++)
+            //    {
+            //        if (LeituraRotas.Rota[i] - 1 == j)
+            //        {
+            //            id.Add(j);
+            //            //this.SuspendLayout();
+            //            //desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
+            //            //this.ResumeLayout();
+            //            //AtualizaMapa();
+            //            //Thread.Sleep(100);
+            //            break;
+            //        }
                     
-                    //Thread.Sleep(200);
-                }
+            //        //Thread.Sleep(200);
+            //    }
                 
-            }
+            //}
             AutoTesteMapa();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.SuspendLayout();
-            if (i < id.Count) 
+            if (i < LeituraRotas.Rota.Count)
             {
-                desenhador.FillRectangle(Brushes.Red, Cruzamentos[id[i]]);
+                desenhador.FillRectangle(Brushes.Red, Cruzamentos[LeituraRotas.Rota[i] - 1]);
                 i++;
+               
             }
+
             else
             {
                 DesenhaAvenidas();
+                DesenhaFaixas();
                 i = 0;
             }
             this.ResumeLayout();
