@@ -76,6 +76,7 @@ namespace InterfaceRotas_AG
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
         Brush pincel_cruzamento = new SolidBrush(Color.AntiqueWhite);
         Rectangle[] Cruzamentos = new Rectangle[30];
+        Pen myPen = new System.Drawing.Pen(Color.LightYellow, 3);
         private int i = 0;
         private List<int> id = new List<int>();
 
@@ -137,7 +138,6 @@ namespace InterfaceRotas_AG
             desenhador.FillRectangle(pincel_cruzamento, cruzamento_30);
 
         }
-        Pen myPen = new System.Drawing.Pen(Color.Yellow, 3);
 
         private void DesenhaFaixas()
         {
@@ -400,6 +400,12 @@ namespace InterfaceRotas_AG
 
         }
 
+        private void DesenhaNumeroCruzamentos()
+        {
+            //for (int i = 0; i < Cruzamentos.Length; i++)
+                //desenhador.DrawString((i + 1).ToString(), new Font("Arial", 16), new SolidBrush(Color.Blue),  Cruzamentos[i].X, Cruzamentos[i].Y);
+        }
+
         private void AtualizaMapa()
         {
             pictureBox2.Invalidate();
@@ -417,7 +423,8 @@ namespace InterfaceRotas_AG
             /*Desenha Mapa incial*/
             DesenhaQuarteroes();
             DesenhaAvenidas();
-            DesenhaFaixas();            
+            DesenhaFaixas();
+            DesenhaNumeroCruzamentos();
             
             AtualizaMapa();
 
@@ -427,9 +434,9 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           //Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
-            //Thread.Sleep(300);
+            Thread.Sleep(8000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
@@ -484,26 +491,6 @@ namespace InterfaceRotas_AG
 
         private void DesenhaMelhorRota()
         {
-            
-            //for (i = 0; i < LeituraRotas.Rota.Length; i++)
-            //{
-            //    for (int j = 0; j < Cruzamentos.Length; j++)
-            //    {
-            //        if (LeituraRotas.Rota[i] - 1 == j)
-            //        {
-            //            id.Add(j);
-            //            //this.SuspendLayout();
-            //            //desenhador.FillRectangle(Brushes.Red, Cruzamentos[j]);
-            //            //this.ResumeLayout();
-            //            //AtualizaMapa();
-            //            //Thread.Sleep(100);
-            //            break;
-            //        }
-                    
-            //        //Thread.Sleep(200);
-            //    }
-                
-            //}
             AutoTesteMapa();
         }
 
@@ -513,6 +500,7 @@ namespace InterfaceRotas_AG
             if (i < LeituraRotas.Rota.Count)
             {
                 desenhador.FillRectangle(Brushes.Red, Cruzamentos[LeituraRotas.Rota[i] - 1]);
+                desenhador.DrawString(LeituraRotas.Rota[i].ToString(), new Font("Arial", 16), new SolidBrush(Color.Blue), Cruzamentos[LeituraRotas.Rota[i] - 1].X, Cruzamentos[LeituraRotas.Rota[i] - 1].Y);
                 i++;
                
             }
@@ -523,6 +511,7 @@ namespace InterfaceRotas_AG
                 DesenhaFaixas();
                 i = 0;
             }
+            //DesenhaNumeroCruzamentos();
             this.ResumeLayout();
             AtualizaMapa();
         }
