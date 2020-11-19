@@ -76,14 +76,15 @@ namespace InterfaceRotas_AG
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
         Brush pincel_cruzamento = new SolidBrush(Color.Gray);
         Rectangle[] Cruzamentos = new Rectangle[30];
-        Pen myPen = new System.Drawing.Pen(Color.LightYellow, 3);
+        Pen myPen = new System.Drawing.Pen(Color.LightYellow, 2);
         private int i = 0;
         private List<int> id = new List<int>();
+        string DirImagens = @"C:\GitHub\TRB2-IA\TRB2-IA-Interface-Grafica\imagens";
 
         private void DesenhaQuarteroes()
         {
-            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\area_1.png");
-            Image original_2 = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\area_2.png");
+            Image original = Image.FromFile(DirImagens + @"\area_1.png");
+            Image original_2 = Image.FromFile(DirImagens + @"\area_2.png");
             desenhador.DrawImage(original, rect, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original_2, rect1, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original, rect2, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
@@ -225,8 +226,8 @@ namespace InterfaceRotas_AG
             desenhador.DrawLine(myPen, new Point(757, y3), new Point(777 - h, y3));
 
             //r4
-            desenhador.DrawLine(myPen, new Point(50, y4), new Point(70   - h, y4));
-            desenhador.DrawLine(myPen, new Point(75, y4), new Point(95   - h, y4));
+            desenhador.DrawLine(myPen, new Point(50, y4), new Point(70 - h, y4));
+            desenhador.DrawLine(myPen, new Point(75, y4), new Point(95 - h, y4));
             desenhador.DrawLine(myPen, new Point(100, y4), new Point(120 - h, y4));
             desenhador.DrawLine(myPen, new Point(125, y4), new Point(145 - h, y4));
             desenhador.DrawLine(myPen, new Point(208, y4), new Point(228 - h, y4));
@@ -247,8 +248,8 @@ namespace InterfaceRotas_AG
             desenhador.DrawLine(myPen, new Point(757, y4), new Point(777 - h, y4));
 
             //r5
-            desenhador.DrawLine(myPen, new Point(50, y5), new Point(70   - h, y5));
-            desenhador.DrawLine(myPen, new Point(75, y5), new Point(95   - h, y5));
+            desenhador.DrawLine(myPen, new Point(50, y5), new Point(70 - h, y5));
+            desenhador.DrawLine(myPen, new Point(75, y5), new Point(95 - h, y5));
             desenhador.DrawLine(myPen, new Point(100, y5), new Point(120 - h, y5));
             desenhador.DrawLine(myPen, new Point(125, y5), new Point(145 - h, y5));
             desenhador.DrawLine(myPen, new Point(208, y5), new Point(228 - h, y5));
@@ -269,7 +270,7 @@ namespace InterfaceRotas_AG
             desenhador.DrawLine(myPen, new Point(757, y5), new Point(777 - h, y5));
 
             //x1
-            desenhador.DrawLine(myPen, new Point(y1, 50), new Point(y1  , 70  - h));
+            desenhador.DrawLine(myPen, new Point(y1, 50), new Point(y1, 70 - h));
             desenhador.DrawLine(myPen, new Point(y1, 75), new Point(y1  , 95 - h));
             desenhador.DrawLine(myPen, new Point(y1, 100), new Point(y1 , 120 - h));
             desenhador.DrawLine(myPen, new Point(y1, 125), new Point(y1 , 145 - h));
@@ -291,8 +292,8 @@ namespace InterfaceRotas_AG
             desenhador.DrawLine(myPen, new Point(y1, 757), new Point(y1 , 777 -h));
 
             //x2
-            desenhador.DrawLine(myPen, new Point(y2, 50), new Point(y2  , 70 - h ));
-            desenhador.DrawLine(myPen, new Point(y2, 75), new Point(y2  , 95 - h ));
+            desenhador.DrawLine(myPen, new Point(y2, 50), new Point(y2  , 70 - h));
+            desenhador.DrawLine(myPen, new Point(y2, 75), new Point(y2  , 95 - h));
             desenhador.DrawLine(myPen, new Point(y2, 100), new Point(y2 , 120 - h));
             desenhador.DrawLine(myPen, new Point(y2, 125), new Point(y2 , 145 - h));
             desenhador.DrawLine(myPen, new Point(y2, 208), new Point(y2 , 228 - h));
@@ -335,70 +336,70 @@ namespace InterfaceRotas_AG
             desenhador.DrawLine(myPen, new Point(y3, 757), new Point(y3 , 777 - h));
 
             //x4
-            desenhador.DrawLine(myPen, new Point(y4, 50), new Point(y4  - h, 70));
-            desenhador.DrawLine(myPen, new Point(y4, 75), new Point(y4  - h, 95));
-            desenhador.DrawLine(myPen, new Point(y4, 100), new Point(y4 - h, 120));
-            desenhador.DrawLine(myPen, new Point(y4, 125), new Point(y4 - h, 145));
-            desenhador.DrawLine(myPen, new Point(y4, 208), new Point(y4 - h, 228));
-            desenhador.DrawLine(myPen, new Point(y4, 233), new Point(y4 - h, 253));
-            desenhador.DrawLine(myPen, new Point(y4, 258), new Point(y4 - h, 278));
-            desenhador.DrawLine(myPen, new Point(y4, 283), new Point(y4 - h, 303));
-            desenhador.DrawLine(myPen, new Point(y4, 366), new Point(y4 - h, 386));
-            desenhador.DrawLine(myPen, new Point(y4, 391), new Point(y4 - h, 411));
-            desenhador.DrawLine(myPen, new Point(y4, 416), new Point(y4 - h, 436));
-            desenhador.DrawLine(myPen, new Point(y4, 441), new Point(y4 - h, 461));
-            desenhador.DrawLine(myPen, new Point(y4, 524), new Point(y4 - h, 544));
-            desenhador.DrawLine(myPen, new Point(y4, 549), new Point(y4 - h, 569));
-            desenhador.DrawLine(myPen, new Point(y4, 574), new Point(y4 - h, 594));
-            desenhador.DrawLine(myPen, new Point(y4, 599), new Point(y4 - h, 619));
-            desenhador.DrawLine(myPen, new Point(y4, 682), new Point(y4 - h, 702));
-            desenhador.DrawLine(myPen, new Point(y4, 707), new Point(y4 - h, 727));
-            desenhador.DrawLine(myPen, new Point(y4, 732), new Point(y4 - h, 752));
-            desenhador.DrawLine(myPen, new Point(y4, 757), new Point(y4 - h, 777));
+            desenhador.DrawLine(myPen, new Point(y4, 50), new Point(y4 , 70 - h));
+            desenhador.DrawLine(myPen, new Point(y4, 75), new Point(y4  , 95 - h));
+            desenhador.DrawLine(myPen, new Point(y4, 100), new Point(y4 , 120- h));
+            desenhador.DrawLine(myPen, new Point(y4, 125), new Point(y4 , 145- h));
+            desenhador.DrawLine(myPen, new Point(y4, 208), new Point(y4 , 228- h));
+            desenhador.DrawLine(myPen, new Point(y4, 233), new Point(y4 , 253- h));
+            desenhador.DrawLine(myPen, new Point(y4, 258), new Point(y4 , 278- h));
+            desenhador.DrawLine(myPen, new Point(y4, 283), new Point(y4 , 303- h));
+            desenhador.DrawLine(myPen, new Point(y4, 366), new Point(y4 , 386- h));
+            desenhador.DrawLine(myPen, new Point(y4, 391), new Point(y4 , 411- h));
+            desenhador.DrawLine(myPen, new Point(y4, 416), new Point(y4 , 436- h));
+            desenhador.DrawLine(myPen, new Point(y4, 441), new Point(y4 , 461- h));
+            desenhador.DrawLine(myPen, new Point(y4, 524), new Point(y4 , 544- h));
+            desenhador.DrawLine(myPen, new Point(y4, 549), new Point(y4 , 569- h));
+            desenhador.DrawLine(myPen, new Point(y4, 574), new Point(y4 , 594- h));
+            desenhador.DrawLine(myPen, new Point(y4, 599), new Point(y4 , 619- h));
+            desenhador.DrawLine(myPen, new Point(y4, 682), new Point(y4 , 702- h));
+            desenhador.DrawLine(myPen, new Point(y4, 707), new Point(y4 , 727- h));
+            desenhador.DrawLine(myPen, new Point(y4, 732), new Point(y4 , 752- h));
+            desenhador.DrawLine(myPen, new Point(y4, 757), new Point(y4 , 777 - h));
 
             //x5
-            desenhador.DrawLine(myPen, new Point(y5, 50), new Point(y5  - h, 70));
-            desenhador.DrawLine(myPen, new Point(y5, 75), new Point(y5  - h, 95));
-            desenhador.DrawLine(myPen, new Point(y5, 100), new Point(y5 - h, 120));
-            desenhador.DrawLine(myPen, new Point(y5, 125), new Point(y5 - h, 145));
-            desenhador.DrawLine(myPen, new Point(y5, 208), new Point(y5 - h, 228));
-            desenhador.DrawLine(myPen, new Point(y5, 233), new Point(y5 - h, 253));
-            desenhador.DrawLine(myPen, new Point(y5, 258), new Point(y5 - h, 278));
-            desenhador.DrawLine(myPen, new Point(y5, 283), new Point(y5 - h, 303));
-            desenhador.DrawLine(myPen, new Point(y5, 366), new Point(y5 - h, 386));
-            desenhador.DrawLine(myPen, new Point(y5, 391), new Point(y5 - h, 411));
-            desenhador.DrawLine(myPen, new Point(y5, 416), new Point(y5 - h, 436));
-            desenhador.DrawLine(myPen, new Point(y5, 441), new Point(y5 - h, 461));
-            desenhador.DrawLine(myPen, new Point(y5, 524), new Point(y5 - h, 544));
-            desenhador.DrawLine(myPen, new Point(y5, 549), new Point(y5 - h, 569));
-            desenhador.DrawLine(myPen, new Point(y5, 574), new Point(y5 - h, 594));
-            desenhador.DrawLine(myPen, new Point(y5, 599), new Point(y5 - h, 619));
-            desenhador.DrawLine(myPen, new Point(y5, 682), new Point(y5 - h, 702));
-            desenhador.DrawLine(myPen, new Point(y5, 707), new Point(y5 - h, 727));
-            desenhador.DrawLine(myPen, new Point(y5, 732), new Point(y5 - h, 752));
-            desenhador.DrawLine(myPen, new Point(y5, 757), new Point(y5 - h, 777));
+            desenhador.DrawLine(myPen, new Point(y5, 50), new Point(y5  , 70 - h));
+            desenhador.DrawLine(myPen, new Point(y5, 75), new Point(y5  , 95 - h));
+            desenhador.DrawLine(myPen, new Point(y5, 100), new Point(y5 , 120- h));
+            desenhador.DrawLine(myPen, new Point(y5, 125), new Point(y5 , 145- h));
+            desenhador.DrawLine(myPen, new Point(y5, 208), new Point(y5 , 228- h));
+            desenhador.DrawLine(myPen, new Point(y5, 233), new Point(y5 , 253- h));
+            desenhador.DrawLine(myPen, new Point(y5, 258), new Point(y5 , 278- h));
+            desenhador.DrawLine(myPen, new Point(y5, 283), new Point(y5 , 303- h));
+            desenhador.DrawLine(myPen, new Point(y5, 366), new Point(y5 , 386- h));
+            desenhador.DrawLine(myPen, new Point(y5, 391), new Point(y5 , 411- h));
+            desenhador.DrawLine(myPen, new Point(y5, 416), new Point(y5 , 436- h));
+            desenhador.DrawLine(myPen, new Point(y5, 441), new Point(y5 , 461- h));
+            desenhador.DrawLine(myPen, new Point(y5, 524), new Point(y5 , 544- h));
+            desenhador.DrawLine(myPen, new Point(y5, 549), new Point(y5 , 569- h));
+            desenhador.DrawLine(myPen, new Point(y5, 574), new Point(y5 , 594- h));
+            desenhador.DrawLine(myPen, new Point(y5, 599), new Point(y5 , 619- h));
+            desenhador.DrawLine(myPen, new Point(y5, 682), new Point(y5 , 702- h));
+            desenhador.DrawLine(myPen, new Point(y5, 707), new Point(y5 , 727- h));
+            desenhador.DrawLine(myPen, new Point(y5, 732), new Point(y5 , 752- h));
+            desenhador.DrawLine(myPen, new Point(y5, 757), new Point(y5 , 777 - h));
 
             //x6
-            desenhador.DrawLine(myPen, new Point(y6, 50), new Point(y6  - h, 70));
-            desenhador.DrawLine(myPen, new Point(y6, 75), new Point(y6  - h, 95));
-            desenhador.DrawLine(myPen, new Point(y6, 100), new Point(y6 - h, 120));
-            desenhador.DrawLine(myPen, new Point(y6, 125), new Point(y6 - h, 145));
-            desenhador.DrawLine(myPen, new Point(y6, 208), new Point(y6 - h, 228));
-            desenhador.DrawLine(myPen, new Point(y6, 233), new Point(y6 - h, 253));
-            desenhador.DrawLine(myPen, new Point(y6, 258), new Point(y6 - h, 278));
-            desenhador.DrawLine(myPen, new Point(y6, 283), new Point(y6 - h, 303));
-            desenhador.DrawLine(myPen, new Point(y6, 366), new Point(y6 - h, 386));
-            desenhador.DrawLine(myPen, new Point(y6, 391), new Point(y6 - h, 411));
-            desenhador.DrawLine(myPen, new Point(y6, 416), new Point(y6 - h, 436));
-            desenhador.DrawLine(myPen, new Point(y6, 441), new Point(y6 - h, 461));
-            desenhador.DrawLine(myPen, new Point(y6, 524), new Point(y6 - h, 544));
-            desenhador.DrawLine(myPen, new Point(y6, 549), new Point(y6 - h, 569));
-            desenhador.DrawLine(myPen, new Point(y6, 574), new Point(y6 - h, 594));
-            desenhador.DrawLine(myPen, new Point(y6, 599), new Point(y6 - h, 619));
-            desenhador.DrawLine(myPen, new Point(y6, 682), new Point(y6 - h, 702));
-            desenhador.DrawLine(myPen, new Point(y6, 707), new Point(y6 - h, 727));
-            desenhador.DrawLine(myPen, new Point(y6, 732), new Point(y6 - h, 752));
-            desenhador.DrawLine(myPen, new Point(y6, 757), new Point(y6 - h, 777));
+            desenhador.DrawLine(myPen, new Point(y6, 50), new Point(y6  , 70 - h));
+            desenhador.DrawLine(myPen, new Point(y6, 75), new Point(y6  , 95 - h));
+            desenhador.DrawLine(myPen, new Point(y6, 100), new Point(y6 , 120- h ));
+            desenhador.DrawLine(myPen, new Point(y6, 125), new Point(y6 , 145- h ));
+            desenhador.DrawLine(myPen, new Point(y6, 208), new Point(y6 , 228- h));
+            desenhador.DrawLine(myPen, new Point(y6, 233), new Point(y6 , 253- h));
+            desenhador.DrawLine(myPen, new Point(y6, 258), new Point(y6 , 278- h));
+            desenhador.DrawLine(myPen, new Point(y6, 283), new Point(y6 , 303- h));
+            desenhador.DrawLine(myPen, new Point(y6, 366), new Point(y6 , 386- h));
+            desenhador.DrawLine(myPen, new Point(y6, 391), new Point(y6 , 411- h));
+            desenhador.DrawLine(myPen, new Point(y6, 416), new Point(y6 , 436- h));
+            desenhador.DrawLine(myPen, new Point(y6, 441), new Point(y6 , 461- h));
+            desenhador.DrawLine(myPen, new Point(y6, 524), new Point(y6 , 544- h));
+            desenhador.DrawLine(myPen, new Point(y6, 549), new Point(y6 , 569- h));
+            desenhador.DrawLine(myPen, new Point(y6, 574), new Point(y6 , 594- h));
+            desenhador.DrawLine(myPen, new Point(y6, 599), new Point(y6 , 619- h));
+            desenhador.DrawLine(myPen, new Point(y6, 682), new Point(y6 , 702- h));
+            desenhador.DrawLine(myPen, new Point(y6, 707), new Point(y6 , 727- h));
+            desenhador.DrawLine(myPen, new Point(y6, 732), new Point(y6 , 752- h));
+            desenhador.DrawLine(myPen, new Point(y6, 757), new Point(y6 , 777 - h));
             
 
 
@@ -441,7 +442,7 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           Process.Start(@"C:\GitHub\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
             Thread.Sleep(8000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
@@ -503,7 +504,7 @@ namespace InterfaceRotas_AG
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_car.jpg");
+            Image original = Image.FromFile(DirImagens + @"\icon_car.jpg");
 
             this.SuspendLayout();
             if (i < LeituraRotas.Rota.Count)
