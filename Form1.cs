@@ -74,7 +74,7 @@ namespace InterfaceRotas_AG
         Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
         Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
-        Brush pincel_cruzamento = new SolidBrush(Color.AntiqueWhite);
+        Brush pincel_cruzamento = new SolidBrush(Color.Black);
         Rectangle[] Cruzamentos = new Rectangle[30];
         Pen myPen = new System.Drawing.Pen(Color.LightYellow, 3);
         private int i = 0;
@@ -82,26 +82,29 @@ namespace InterfaceRotas_AG
 
         private void DesenhaQuarteroes()
         {
-            desenhador.FillRectangle(pincelQuarterao, rect);
-            desenhador.FillRectangle(pincelQuarterao, rect1);
-            desenhador.FillRectangle(pincelQuarterao, rect2);
-            desenhador.FillRectangle(pincelQuarterao, rect3);
-            desenhador.FillRectangle(pincelQuarterao, rect4);
-            desenhador.FillRectangle(pincelQuarterao, rect5);
-            desenhador.FillRectangle(pincelQuarterao, rect6);
-            desenhador.FillRectangle(pincelQuarterao, rect7);
-            desenhador.FillRectangle(pincelQuarterao, rect8);
-            desenhador.FillRectangle(pincelQuarterao, rect9);
-            desenhador.FillRectangle(pincelQuarterao, rect10);
-            desenhador.FillRectangle(pincelQuarterao, rect11);
-            desenhador.FillRectangle(pincelQuarterao, rect12);
-            desenhador.FillRectangle(pincelQuarterao, rect13);
-            desenhador.FillRectangle(pincelQuarterao, rect14);
-            desenhador.FillRectangle(pincelQuarterao, rect15);
-            desenhador.FillRectangle(pincelQuarterao, rect16);
-            desenhador.FillRectangle(pincelQuarterao, rect17);
-            desenhador.FillRectangle(pincelQuarterao, rect18);
-            desenhador.FillRectangle(pincelQuarterao, rect19);
+            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\area_1.png");
+            desenhador.DrawImage(original, rect, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect1, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect2, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect3, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect4, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect5, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect6, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect7, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect8, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect9, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect10, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect11, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect12, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect13, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect14, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect15, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect16, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect17, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect18, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original, rect19, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);            
+            //desenhador.FillRectangle(pincelQuarterao, rect);
+           
         }
 
         private void DesenhaAvenidas()
@@ -419,13 +422,16 @@ namespace InterfaceRotas_AG
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
             desenhador.Clear(Color.Black); //limpa e atribuir a cor cinza do mapa
+            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_carro.png");           
 
             /*Desenha Mapa incial*/
             DesenhaQuarteroes();
             DesenhaAvenidas();
             DesenhaFaixas();
             DesenhaNumeroCruzamentos();
-            
+            //desenhador.DrawImage(original, cruzamento_1, new Rectangle(0, 0, 35, 30), GraphicsUnit.Pixel);
+
+
             AtualizaMapa();
 
             AtribuiCruzamentos();
@@ -434,7 +440,7 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           Process.Start(@"C:\GitHub\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
             /*Para Leitura No arquivo*/
             Thread.Sleep(8000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
@@ -496,11 +502,14 @@ namespace InterfaceRotas_AG
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_carro.png");
+
             this.SuspendLayout();
             if (i < LeituraRotas.Rota.Count)
             {
                 desenhador.FillRectangle(Brushes.Red, Cruzamentos[LeituraRotas.Rota[i] - 1]);
-                desenhador.DrawString(LeituraRotas.Rota[i].ToString(), new Font("Arial", 16), new SolidBrush(Color.Blue), Cruzamentos[LeituraRotas.Rota[i] - 1].X, Cruzamentos[LeituraRotas.Rota[i] - 1].Y);
+                desenhador.DrawImage(original, Cruzamentos[LeituraRotas.Rota[i] - 1] , new Rectangle(0, 0, 35, 30), GraphicsUnit.Pixel);
+                //desenhador.DrawString(LeituraRotas.Rota[i].ToString(), new Font("Arial", 16), new SolidBrush(Color.Blue), Cruzamentos[LeituraRotas.Rota[i] - 1].X, Cruzamentos[LeituraRotas.Rota[i] - 1].Y);
                 i++;
                
             }

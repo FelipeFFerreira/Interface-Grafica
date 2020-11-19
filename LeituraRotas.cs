@@ -16,7 +16,7 @@ namespace InterfaceRotas_AG
         {
             do
             {
-                string sourcePath = @"C:\GitHub\TRB2-IA\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
+                string sourcePath = @"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
                 string[] ConteudoRota = new string[30];
                 try
                 {
