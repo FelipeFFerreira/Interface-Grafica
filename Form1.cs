@@ -74,7 +74,7 @@ namespace InterfaceRotas_AG
         Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
         Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
-        Brush pincel_cruzamento = new SolidBrush(Color.Black);
+        Brush pincel_cruzamento = new SolidBrush(Color.Gray);
         Rectangle[] Cruzamentos = new Rectangle[30];
         Pen myPen = new System.Drawing.Pen(Color.LightYellow, 3);
         private int i = 0;
@@ -83,10 +83,11 @@ namespace InterfaceRotas_AG
         private void DesenhaQuarteroes()
         {
             Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\area_1.png");
+            Image original_2 = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\area_2.png");
             desenhador.DrawImage(original, rect, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(original, rect1, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original_2, rect1, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original, rect2, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(original, rect3, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(original_2, rect3, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original, rect4, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original, rect5, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(original, rect6, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
@@ -421,8 +422,8 @@ namespace InterfaceRotas_AG
             img = new Bitmap(pictureBox2.Width, pictureBox2.Height); //criar a folha em branco  
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
-            desenhador.Clear(Color.Black); //limpa e atribuir a cor cinza do mapa
-            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_carro.png");           
+            desenhador.Clear(Color.Gray); //limpa e atribuir a cor cinza do mapa
+            //Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\ic_car.png");           
 
             /*Desenha Mapa incial*/
             DesenhaQuarteroes();
@@ -502,13 +503,13 @@ namespace InterfaceRotas_AG
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_carro.png");
+            Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\icon_car.jpg");
 
             this.SuspendLayout();
             if (i < LeituraRotas.Rota.Count)
             {
                 desenhador.FillRectangle(Brushes.Red, Cruzamentos[LeituraRotas.Rota[i] - 1]);
-                desenhador.DrawImage(original, Cruzamentos[LeituraRotas.Rota[i] - 1] , new Rectangle(0, 0, 35, 30), GraphicsUnit.Pixel);
+                desenhador.DrawImage(original, Cruzamentos[LeituraRotas.Rota[i] - 1] , new Rectangle(0, 0, 35, 35), GraphicsUnit.Pixel);
                 //desenhador.DrawString(LeituraRotas.Rota[i].ToString(), new Font("Arial", 16), new SolidBrush(Color.Blue), Cruzamentos[LeituraRotas.Rota[i] - 1].X, Cruzamentos[LeituraRotas.Rota[i] - 1].Y);
                 i++;
                
