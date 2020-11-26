@@ -80,7 +80,7 @@ namespace InterfaceRotas_AG
         Pen myPen = new System.Drawing.Pen(Color.LightYellow, 1);
         private int i = 0;
         private List<int> id = new List<int>();
-        string DirImagens = @"C:\GitHub\TRB2-IA\TRB2-IA-Interface-Grafica\imagens";
+        string DirImagens = @"C:\GitHub\TRB2-IA-Interface-Grafica\imagens";
 
         private void DesenhaQuarteroes()
         {
@@ -450,9 +450,9 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           //Process.Start(@"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS.exe");
+           Process.Start(@"C:\GitHub\FormigasRotas\bin\Debug\FormigasRotas");
             /*Para Leitura No arquivo*/
-            //Thread.Sleep(15000);
+           Thread.Sleep(35000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
@@ -526,9 +526,23 @@ namespace InterfaceRotas_AG
             }
         }
 
+        private void DesenharDestinos()
+        {
+            desenhador.DrawImage(Image.FromFile(DirImagens + @"\batida.png"),
+                        Cruzamentos[LeituraRotas.PosAcidente - 1],
+                        new Rectangle(0, 0, 48, 48),
+                        GraphicsUnit.Pixel);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             this.SuspendLayout();
+            
+            DesenhaQuarteroes();
+            DesenhaAvenidas();
+            DesenhaFaixas();
+            DesenharDestinos();
+
             if (i < LeituraRotas.Rota.Count)
             {
                 desenhador.DrawImage(Image.FromFile(DirImagens + GetImagem(i)),

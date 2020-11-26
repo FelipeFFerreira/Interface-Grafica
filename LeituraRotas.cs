@@ -11,12 +11,15 @@ namespace InterfaceRotas_AG
     static class LeituraRotas
     {
         public static List<int> Rota = new List<int>();
-
+        public static int PosAcidente;
+        public static int PosHospital;
+        static char[] charsToTrim = { 'a', 'h' };
+        
         internal static bool RealizarLeituraRota()
         {
             do
             {
-                string sourcePath = @"C:\GitHub\TRB2-IA\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
+                string sourcePath = @"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
                 string[] ConteudoRota = new string[30];
                 try
                 {
@@ -44,9 +47,22 @@ namespace InterfaceRotas_AG
                     Console.WriteLine("Ocorreu um erro");
                     Console.WriteLine(e.Message);
                 }
-                if(String.Compare(ConteudoRota[0], "v") == 0 && String.Compare(ConteudoRota[0], "v") == 0)
+                if(String.Compare(ConteudoRota[0], "v") == 0 && String.Compare(ConteudoRota[ConteudoRota.Length - 1], "v") == 0)
                 {
-                    for (int i = 0; i < ConteudoRota.Length - 2; i++) Rota.Add(int.Parse(ConteudoRota[i + 1]));
+                    for (int i = 0; i < ConteudoRota.Length - 2; i++) 
+                        if(ConteudoRota[i + 1].Contains('a') || ConteudoRota[i + 1].Contains('h'))
+                            if(ConteudoRota[i + 1].Contains('a'))
+                            {
+                                PosAcidente = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
+                            }
+                            else
+                            {
+                                PosHospital = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
+                            }
+                        else
+                        {
+                            Rota.Add(int.Parse(ConteudoRota[i + 1]));
+                        }
                     return true;
                 }
             } while (true);
