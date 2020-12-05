@@ -75,7 +75,7 @@ namespace InterfaceRotas_AG
         Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
         Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
-        Brush pincel_cruzamento = new SolidBrush(Color.DarkGray);
+        Brush pincel_cruzamento = new SolidBrush(Color.DimGray);
         Rectangle[] Cruzamentos = new Rectangle[30];
         Pen myPen = new System.Drawing.Pen(Color.LightYellow, 1);
         private int i = 0;
@@ -91,6 +91,8 @@ namespace InterfaceRotas_AG
             Image casa5 = Image.FromFile(DirImagens + @"\casa5.png");
             Image casa6 = Image.FromFile(DirImagens + @"\casa6.png");
             Image area1 = Image.FromFile(DirImagens + @"\area_1.png");
+            Image area4 = Image.FromFile(DirImagens + @"\area_4.png");
+            Image area3 = Image.FromFile(DirImagens + @"\area_3.png");
             Image original_4 = Image.FromFile(DirImagens + @"\area_3.jpg");
 
             desenhador.DrawImage(casa6, rect, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
@@ -98,18 +100,18 @@ namespace InterfaceRotas_AG
             desenhador.DrawImage(casa1, rect2, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa4, rect3, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa3, rect4, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(casa6, rect5, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(casa5, rect5, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(area1, rect6, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa5, rect7, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa5, rect8, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa4, rect9, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(casa1, rect10, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(casa2, rect11, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(casa6, rect10, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(area1, rect11, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa3, rect12, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(area1, rect13, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa1, rect14, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(casa2, rect15, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
-            desenhador.DrawImage(casa3, rect16, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(casa4, rect15, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
+            desenhador.DrawImage(casa5, rect16, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa4, rect17, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa5, rect18, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);
             desenhador.DrawImage(casa6, rect19, new Rectangle(0, 0, 120, 120), GraphicsUnit.Pixel);            
@@ -431,7 +433,7 @@ namespace InterfaceRotas_AG
             img = new Bitmap(pictureBox2.Width, pictureBox2.Height); //criar a folha em branco  
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
-            desenhador.Clear(Color.DarkGray); //limpa e atribuir a cor cinza do mapa
+            desenhador.Clear(Color.DimGray); //limpa e atribuir a cor cinza do mapa
             //Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\ic_car.png");           
 
             /*Desenha Mapa incial*/
@@ -452,7 +454,7 @@ namespace InterfaceRotas_AG
             /*Chamar exe*/
            Process.Start(@"C:\GitHub\FormigasRotas\bin\Debug\FormigasRotas");
             /*Para Leitura No arquivo*/
-           Thread.Sleep(35000);
+           Thread.Sleep(20000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
@@ -532,6 +534,11 @@ namespace InterfaceRotas_AG
                         Cruzamentos[LeituraRotas.PosAcidente - 1],
                         new Rectangle(0, 0, 48, 48),
                         GraphicsUnit.Pixel);
+
+            desenhador.DrawImage(Image.FromFile(DirImagens + @"\hospital.png"),
+                       Cruzamentos[LeituraRotas.PosHospital - 1],
+                       new Rectangle(0, 0, 48, 48),
+                       GraphicsUnit.Pixel);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
