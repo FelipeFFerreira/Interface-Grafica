@@ -10,16 +10,17 @@ namespace InterfaceRotas_AG
 {
     static class LeituraRotas
     {
+        static private string DirArq = @"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
         public static List<int> Rota = new List<int>();
-        public static int PosAcidente;
-        public static int PosHospital;
-        static char[] charsToTrim = { 'a', 'h' };
+        public static int PosInicio;
+        public static int PosFinal;
+        static private char[] charsToTrim = { 'i', 'f' };
         
         internal static bool RealizarLeituraRota()
         {
             do
             {
-                string sourcePath = @"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
+                string sourcePath = DirArq;
                 string[] ConteudoRota = new string[30];
                 try
                 {
@@ -49,20 +50,21 @@ namespace InterfaceRotas_AG
                 }
                 if(String.Compare(ConteudoRota[0], "v") == 0 && String.Compare(ConteudoRota[ConteudoRota.Length - 1], "v") == 0)
                 {
-                    for (int i = 0; i < ConteudoRota.Length - 2; i++) 
-                        if(ConteudoRota[i + 1].Contains('a') || ConteudoRota[i + 1].Contains('h'))
-                            if(ConteudoRota[i + 1].Contains('a'))
+                    for (int i = 0; i < ConteudoRota.Length - 2; i++)
+                    {
+                        if (ConteudoRota[i + 1].Contains('i') || ConteudoRota[i + 1].Contains('f'))
+                            if (ConteudoRota[i + 1].Contains('i'))
                             {
-                                PosAcidente = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
+                                PosInicio = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
                             }
                             else
                             {
-                                PosHospital = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
+                                PosFinal = int.Parse(ConteudoRota[i + 1].Trim(charsToTrim));
                             }
-                        else
-                        {
-                            Rota.Add(int.Parse(ConteudoRota[i + 1]));
-                        }
+
+                        Rota.Add(int.Parse(ConteudoRota[i + 1].Trim(charsToTrim)));
+                    }
+                        
                     return true;
                 }
             } while (true);

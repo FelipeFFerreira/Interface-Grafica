@@ -12,17 +12,21 @@ using System.Windows.Forms;
 
 namespace InterfaceRotas_AG
 {
+
     public partial class Rotas : Form
     {
+        string DirImagens = @"C:\GitHub\TRB2-IA-Interface-Grafica\imagens";
+        string DirAGExe = @"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS";
+        private static int x = 38;
+        private static int y = 38;
+        Graphics desenhador;
 
         public Rotas()
         {
             InitializeComponent();
 
         }
-        private static int x = 38;
-        private static int y = 38;
-        Graphics desenhador;
+       
         static private Bitmap img;
         static Rectangle rect = new Rectangle(x, y, 120, 120);
         static Rectangle rect1 = new Rectangle(x, rect.Y + rect.Height + y, 120, 120);
@@ -80,7 +84,7 @@ namespace InterfaceRotas_AG
         Pen myPen = new System.Drawing.Pen(Color.LightYellow, 1);
         private int i = 0;
         private List<int> id = new List<int>();
-        string DirImagens = @"C:\GitHub\TRB2-IA-Interface-Grafica\imagens";
+        
 
         private void DesenhaQuarteroes()
         {
@@ -452,9 +456,9 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           Process.Start(@"C:\GitHub\FormigasRotas\bin\Debug\FormigasRotas");
+           Process.Start(DirAGExe);
             /*Para Leitura No arquivo*/
-           Thread.Sleep(20000);
+           Thread.Sleep(1000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();
@@ -530,13 +534,13 @@ namespace InterfaceRotas_AG
 
         private void DesenharDestinos()
         {
-            desenhador.DrawImage(Image.FromFile(DirImagens + @"\batida.png"),
-                        Cruzamentos[LeituraRotas.PosAcidente - 1],
+            desenhador.DrawImage(Image.FromFile(DirImagens + @"\partida.png"),
+                        Cruzamentos[LeituraRotas.PosInicio - 1],
                         new Rectangle(0, 0, 48, 48),
                         GraphicsUnit.Pixel);
 
-            desenhador.DrawImage(Image.FromFile(DirImagens + @"\hospital.png"),
-                       Cruzamentos[LeituraRotas.PosHospital - 1],
+            desenhador.DrawImage(Image.FromFile(DirImagens + @"\destino.png"),
+                       Cruzamentos[LeituraRotas.PosFinal - 1],
                        new Rectangle(0, 0, 48, 48),
                        GraphicsUnit.Pixel);
         }
