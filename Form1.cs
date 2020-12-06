@@ -79,9 +79,10 @@ namespace InterfaceRotas_AG
         Rectangle cruzamento_30 = new Rectangle(rect7.X + rect7.Height, rect3.Y + rect3.Height, x, y);
         Rectangle cruzamento_28 = new Rectangle(rect6.X - x, rect3.Y + rect3.Height, x, y);
         Brush pincelQuarterao = new SolidBrush(Color.ForestGreen);
-        Brush pincel_cruzamento = new SolidBrush(Color.DimGray);
+        Brush pincel_cruzamento = new SolidBrush(corMapa);
         Rectangle[] Cruzamentos = new Rectangle[30];
-        Pen myPen = new System.Drawing.Pen(Color.LightYellow, 1);
+        static Color corMapa = Color.LightSlateGray;
+        Pen myPen = new System.Drawing.Pen(Color.Yellow, 1);
         private int i = 0;
         private List<int> id = new List<int>();
         
@@ -437,7 +438,7 @@ namespace InterfaceRotas_AG
             img = new Bitmap(pictureBox2.Width, pictureBox2.Height); //criar a folha em branco  
             pictureBox2.BackgroundImage = img;
             desenhador = Graphics.FromImage(img);
-            desenhador.Clear(Color.DimGray); //limpa e atribuir a cor cinza do mapa
+            desenhador.Clear(corMapa); //limpa e atribuir a cor cinza do mapa
             //Image original = Image.FromFile(@"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\imagens" + @"\ic_car.png");           
 
             /*Desenha Mapa incial*/
