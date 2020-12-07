@@ -15,7 +15,7 @@ namespace InterfaceRotas_AG
 
     public partial class Rotas : Form
     {
-        string DirImagens = @"C:\GitHub\TRB2-IA-Interface-Grafica\imagens";
+        string DirImagens = @"C:\GitHub\Interface-Grafica\imagens";
         string DirAGExe = @"C:\GitHub\TRB2-IA\TRB2-IA-AG-ROTAS\AG_ROTAS\bin\Debug\AG_ROTAS";
         private static int x = 38;
         private static int y = 38;
@@ -82,7 +82,7 @@ namespace InterfaceRotas_AG
         Brush pincel_cruzamento = new SolidBrush(corMapa);
         Rectangle[] Cruzamentos = new Rectangle[30];
         static Color corMapa = Color.LightSlateGray;
-        Pen myPen = new System.Drawing.Pen(Color.Yellow, 1);
+        Pen myPen = new System.Drawing.Pen(Color.White, 1);
         private int i = 0;
         private List<int> id = new List<int>();
         
@@ -457,9 +457,9 @@ namespace InterfaceRotas_AG
             //AutoTesteMapa();
 
             /*Chamar exe*/
-           Process.Start(DirAGExe);
+           //Process.Start(DirAGExe);
             /*Para Leitura No arquivo*/
-           Thread.Sleep(1000);
+           //Thread.Sleep(1000);
             if (LeituraRotas.RealizarLeituraRota()) DesenhaMelhorRota();
 
             AtualizaMapa();

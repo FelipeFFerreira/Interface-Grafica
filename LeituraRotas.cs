@@ -10,7 +10,7 @@ namespace InterfaceRotas_AG
 {
     static class LeituraRotas
     {
-        static private string DirArq = @"C:\GitHub\TRB2-IA-Interface-Grafica\bin\Debug\result_rota.txt";
+        static private string DirArq = @"C:\GitHub\Interface-Grafica\bin\Debug\result_rota.txt";
         public static List<int> Rota = new List<int>();
         public static int PosInicio;
         public static int PosFinal;
